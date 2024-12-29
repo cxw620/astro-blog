@@ -35,6 +35,12 @@ export const SOCIALS: SocialObjects = [
     active: true,
   },
   {
+    name: "Mail",
+    href: "cxwdyx620#qq.com",
+    linkTitle: ` Email me (remove \`#\` with \`@\`)`,
+    active: true,
+  },
+  {
     name: "Linux.do",
     href: "https://linux.do/u/hantong",
     linkTitle: ` ${SITE.title} on Linux.do`,
