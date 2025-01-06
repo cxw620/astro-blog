@@ -25,7 +25,7 @@ All my articles are under license CC BY-NC-SA 4.0 unless other one specified.
   - [miku-server-timing](https://crates.io/crates/miku-server-timing)
   
     Simple server-timing middleware for `axum`, modified from `axum-server-timing`.
-  - [miku-axum-server](https://crates.io/crates/miku-axum-server) **TODO** **Blocked by `axum`'s v0.8.0 release**
+  - [miku-axum-server](https://crates.io/crates/miku-axum-server) **TODO**
 
     `axum-server` with TLS fingerprinting, ~~HTTP3 support~~. Modified from `axum-server`.
 - [miku-http-util](https://crates.io/crates/miku-http-util)
