@@ -31,19 +31,19 @@ export const SOCIALS: SocialObjects = [
   {
     name: "Github",
     href: "https://github.com/cxw620",
-    linkTitle: ` ${SITE.title} on Github`,
+    linkTitle: `${SITE.title} on Github`,
     active: true,
   },
   {
     name: "Mail",
     href: "mailto:cxwdyx620@gmail.com",
-    linkTitle: ` Email me`,
+    linkTitle: `Email me`,
     active: true,
   },
   {
     name: "Linux.do",
     href: "https://linux.do/u/hantong",
-    linkTitle: ` ${SITE.title} on Linux.do`,
+    linkTitle: `${SITE.title} on Linux.do`,
     active: true,
   },
 ];
