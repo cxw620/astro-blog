@@ -1,7 +1,7 @@
 ---
 author: Evan Schwartz, translated by Hantong Chen
 pubDatetime: 2025-02-08T20:42:54.000+08:00
-# modDatetime: 
+modDatetime: 2025-02-11T13:27:50.000+08:00
 title: 定位 "Future Is Not Send" 错误
 featured: true
 draft: false
@@ -90,7 +90,7 @@ trait TestT {
 
 ## The DX Problem with Non-Send Futures | 非 `Send` `Future`s 的 DX 问题
 
-(译者注: 实在没找到 DX 是什么, 不译, 不影响理解)
+(译者注: 原文并没有指出 DX 是什么的缩写, 不译, 不影响理解)
 
 To illustrate the problem in the simplest way possible, let's take an extremely simplified example.
 
@@ -436,7 +436,7 @@ If you're working with Rust streams, you might also want to check out:
   [argus](https://github.com/cognitive-engineering-lab/argus) 是一个实验性的 VSCode 拓展. 它使用 Rust 的新的 trait 求解器来帮助您确定某些结构体/`Future` 或 `Stream` 没实现其应有的 traits.
 
 ---
-Discuss on [r/rust](https://www.reddit.com/r/rust/comments/1igr8i2/pinning_down_future_is_not_send_errors/), [Lobsters](https://www.reddit.com/r/rust/comments/1igr8i2/pinning_down_future_is_not_send_errors/), or [Hacker News](https://news.ycombinator.com/item?id=42918892).
+Discuss on [r/rust](https://www.reddit.com/r/rust/comments/1igr8i2/pinning_down_future_is_not_send_errors/), [Lobsters](https://lobste.rs/s/4vgdml/pinning_down_future_is_not_send_errors/), or [Hacker News](https://news.ycombinator.com/item?id=42918892).
 
 ---
 `This Week in Rust(TWiR)` CHN Translation Project, #585
