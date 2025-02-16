@@ -1,7 +1,7 @@
 ---
 author: Evan Schwartz, translated by Hantong Chen
 pubDatetime: 2025-02-08T20:42:54.000+08:00
-modDatetime: 2025-02-11T13:27:50.000+08:00
+modDatetime: 2025-02-16T23:04:59.000+08:00
 title: 定位 "Future Is Not Send" 错误
 featured: true
 draft: false
@@ -180,7 +180,7 @@ Instead of using an async fn, we can instead use a normal fn that returns a Futu
 
 We can transform our example above into something that looks like the code below using an async block, or alternatively using `Future` combinators.
 
-我们可以将上面的示例转换为使用 `async` 块的看起来像代码的东西, 或使用 `Future` 组合符的代码.
+我们可以将上面的示例转换为使用 `async` 块的看起来像代码的东西, 或使用 `Future` 组合器的代码.
 
 Neither of these will compile ([playground link](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=40ca4d2d7cd02ec6cac4466cc6f3335b)), but this time the compiler errors will point to the Futures returned by async_chain or combinator_chain not fulfilling the Send bound that we are specifying.
 
@@ -291,17 +291,17 @@ While debugging, you could wrap any part of the async chain with the send_static
 
 (这与 `static_assertions::assert_impl_all` 宏进行的操作类似, 使用该 crate 是另一个选择)
 
-## Identifying Non-Send `Stream` Combinators | 识别非 `Send` 的 `Stream` 组合
+## Identifying Non-Send `Stream` Combinators | 识别非 `Send` 的 `Stream` 组合器
 
 译者注: `Future` 处理单个异步事件. 而 `Stream` 处理多个异步事件的序列, 通俗地, `Stream` 即流式处理的一大堆 `Future`s. 一个极为常见的情形是服务器流式处理客户端传过来的编码过的 HTTP Body, 接收一个数据帧处理一个数据帧.
 
 Since the introduction of `async`/`await`, I have mostly stopped using `Future` combinators. However, combinators still seem like the way to go when working with `Stream`s.
 
-自从引入 `async`/`await` 以来, 我基本已不再使用 `Future` 组合方法. 但是, 在处理 `Stream`s 时, 组合方法似乎仍然必要的.
+自从引入 `async`/`await` 以来, 我基本已不再使用 `Future` 组合器. 但是, 在处理 `Stream`s 时, 组合器似乎仍然必要的.
 
 `Stream`s present the same DX problems we've seen above when you have a combinator that produces a non-Send result.
 
-`Stream`s 显示了前述相同的 DX 问题, 当您有一个产生非 `Send` 结果的组合时.
+`Stream`s 显示了前述相同的 DX 问题, 当您有一个产生非 `Send` 结果的组合器时.
 
 Here's a simple example ([playground link](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=f24b0dce4b60c862efa22f08bbbd31f5)) that demonstrates the same issue we had with `Future`s above:
 
@@ -406,13 +406,13 @@ I ran into this while working on [`Scour`](https://scour.ing/), a personalized c
 
 Transitioning to using `Stream`s allows me to take advantage of combinators like [`flat_map_unordered`](https://docs.rs/futures/latest/futures/stream/trait.StreamExt.html#method.flat_map_unordered), which polls nested streams with a configurable level of concurrency. This works well for my use case, but writing the code initially involved plenty of non-`Send`-`Future` hunting.
 
-转向使用 `Stream`s 让我可以利用像 [`flat_map_unordered`](https://docs.rs/futures/latest/futures/stream/trait.StreamExt.html#method.flat_map_unordered) 这样的组合方法. 它可以以可配置的并发级别轮询嵌套流. 这对我的使用场景很有效. 但最初编写代码时涉及大量寻找非 `Send` 的 `Future`.
+转向使用 `Stream`s 让我可以利用像 [`flat_map_unordered`](https://docs.rs/futures/latest/futures/stream/trait.StreamExt.html#method.flat_map_unordered) 这样的组合器. 它可以以可配置的并发级别轮询嵌套流. 这对我的使用场景很有效. 但最初编写代码时涉及大量寻找非 `Send` 的 `Future`.
 
 (译者注: 基本符合我的猜测.)
 
 The techniques described above helped me narrow down why my `Stream` combinator chains were becoming non-`Send`. I hope you find them useful as well!
 
-上面描述的技术帮助我缩小了可能是是哪个闭包让我的 `Stream` 组合链变得非 `Send` 的范围. 希望您也发现它们也有用!
+上面描述的技术帮助我缩小了可能是是哪个闭包让我的 `Stream` 组合器变得非 `Send` 的范围. 希望您也发现它们也有用!
 
 Thanks to [Alex Kesling](https://kesling.co/) for mentioning this technique and saving me a couple hours of fighting with `rustc`.
 
