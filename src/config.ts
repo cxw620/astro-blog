@@ -36,8 +36,8 @@ export const SOCIALS: SocialObjects = [
   },
   {
     name: "Mail",
-    href: "cxwdyx620#qq.com",
-    linkTitle: ` Email me (remove \`#\` with \`@\`)`,
+    href: "mailto:cxwdyx620@gmail.com",
+    linkTitle: ` Email me`,
     active: true,
   },
   {
