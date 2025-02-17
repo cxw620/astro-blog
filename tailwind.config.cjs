@@ -1,3 +1,5 @@
+import defaultTheme from 'tailwindcss/defaultTheme'
+
 function withOpacity(variableName) {
   return ({ opacityValue }) => {
     if (opacityValue !== undefined) {
@@ -60,7 +62,8 @@ module.exports = {
         }
       },
       fontFamily: {
-        mono: ["IBM Plex Mono", "monospace"],
+        sans: ["LXGW WenKai Screen", ...defaultTheme.fontFamily.sans],
+        mono: ["LXGW WenKai Mono Screen", ...defaultTheme.fontFamily.mono],
       },
 
       typography: {

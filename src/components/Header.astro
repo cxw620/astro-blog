@@ -3,6 +3,7 @@ import { LOGO_IMAGE, SITE } from "@config";
 import Hr from "./Hr.astro";
 import LinkButton from "./LinkButton.astro";
 
+
 export interface Props {
   activeNav?: "posts" | "archives" | "tags" | "about" | "search";
 }
@@ -18,10 +19,11 @@ const { activeNav } = Astro.props;
         {
           LOGO_IMAGE.enable ? (
             <img
-              src={`/assets/${LOGO_IMAGE.svg ? "logo.svg" : "logo.png"}`}
+              src={`/assets/${LOGO_IMAGE.svg ? "logo.svg" : LOGO_IMAGE.gif ? "logo.gif" : "logo.png"}`}
               alt={SITE.title}
               width={LOGO_IMAGE.width}
               height={LOGO_IMAGE.height}
+              style="border-radius: 100%"
             />
           ) : (
             SITE.title
@@ -86,12 +88,10 @@ const { activeNav } = Astro.props;
                       activeNav === "archives" && "!stroke-skin-accent",
                     ]}
                   >
-                    <>
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                      <path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
-                      <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
-                      <path d="M10 12l4 0" />
-                    </>
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
+                    <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+                    <path d="M10 12l4 0" />
                   </svg>
                   <span
                     class:list={[
