@@ -8,6 +8,7 @@ import type { CollectionEntry } from "astro:content";
 import { slugifyStr } from "@utils/slugify";
 import ShareLinks from "@components/ShareLinks.astro";
 import TOC from "@components/Toc.astro";
+import Comments from "@components/Comments";
 import { SITE } from "@config";
 
 export interface Props {
@@ -179,6 +180,10 @@ const nextPost =
         )
       }
     </div>
+
+    <!-- Giscus -->
+    <Comments client:only="react" />
+
   </main>
   <Footer />
 </Layout>

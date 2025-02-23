@@ -1,4 +1,5 @@
 import type { Site, SocialObjects } from "./types";
+import type { GiscusProps } from "@giscus/react";
 
 export const SITE: Site = {
   website: "https://acfun.win/", // replace this with your deployed domain
@@ -47,3 +48,17 @@ export const SOCIALS: SocialObjects = [
     active: true,
   },
 ];
+
+export const GISCUS: GiscusProps = {
+  repo: "cxw620/astro-blog",
+  repoId: "R_kgDONdbV8Q",
+  category: "Announcements",
+  categoryId: "DIC_kwDONdbV8c4CnO7b",
+  mapping: "pathname",
+  strict: "0",
+  reactionsEnabled: "1",
+  emitMetadata: "0",
+  inputPosition: "top",
+  lang: "en",
+  loading: "lazy"
+};
